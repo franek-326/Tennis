@@ -1,18 +1,64 @@
 public class TennisGame {
 
+    private GameScore score;
+
     private int player1Score;
     private int player2Score;
 
     public TennisGame() {
+        setScore(new GameScoreLoveLove());
+
+        // TODO finally this will not be needed
         player1Score = 0;
         player2Score = 0;
     }
 
-    public String getScore() {
+    public void wonPoint(String s) {
+        if (s.equals("player1")) {
+            score.pointForPlayer1(this);
 
-        return transformPlayerScoreNumberToScoreName(player1Score, player2Score);
+            // TODO finally this will not be needed
+            player1Score++;
+        } else {
+            score.pointForPlayer2(this);
+            // TODO finally this will not be needed
+            player2Score++;
+        }
     }
 
+
+    public String getScore() {
+        if (player1Score == player2Score && player1Score == 0) {
+            return score.getScoreName();
+        } else if (player1Score == 0 && player2Score == 1) {
+            return score.getScoreName();
+        } else if (player1Score == 1 && player2Score == 0) {
+            return score.getScoreName();
+        } else if (player1Score == 1 && player2Score == 1) {
+            return score.getScoreName();
+        } else if (player1Score == 2 && player2Score == 1) {
+            return score.getScoreName();
+        } else if (player1Score == 1 && player2Score == 2) {
+            return score.getScoreName();
+        } else if (player1Score == 0 && player2Score == 2) {
+            return score.getScoreName();
+        } else if (player1Score == 2 && player2Score == 0) {
+            return score.getScoreName();
+        }
+
+
+        // TODO finally this will not be needed
+        return transformPlayerScoreNumberToScoreName(player1Score, player2Score);
+
+    }
+
+
+    public void setScore(GameScore newScore) {
+        this.score = newScore;
+    }
+
+
+    // TODO finally this will not be needed
     private String transformPlayerScoreNumberToScoreName(int player1Score, int player2Score) {
         String player1ScoreName = "Love";
         String player2ScoreName = "Love";
@@ -55,35 +101,25 @@ public class TennisGame {
     }
 
     private boolean isDeuce(int player1Score, int player2Score) {
-        return player1Score>=3 && player1Score==player2Score;
+        return player1Score >= 3 && player1Score == player2Score;
     }
-
-
-
 
     /*
         checks if player provided in the first argument has advantage over the other player
         (at least 3 points for both players and
         player with advantage has one point more than the other player)
      */
+
     private boolean isAdvantageForPlayer(int playerScore, int theOtherPlayerScore) {
         return theOtherPlayerScore >= 3 && playerScore == theOtherPlayerScore + 1;
     }
-
     /*
         checks if the player provided in the first argument has won
         (at least 4 points and 2 more than the other player)
      */
+
     private boolean hasPlayerWon(int playerScore, int theOtherPlayerScore) {
         return playerScore >= 4 && playerScore >= theOtherPlayerScore + 2;
     }
 
-
-    public void wonPoint(String s) {
-        if (s.equals("player1")) {
-            player1Score++;
-        } else {
-            player2Score++;
-        }
-    }
 }
