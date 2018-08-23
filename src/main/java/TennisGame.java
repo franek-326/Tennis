@@ -10,10 +10,7 @@ public class TennisGame {
 
     public String getScore() {
 
-        String score = transformPlayerScoreNumberToScoreName(player1Score, player2Score);
-
-
-        return score;
+        return transformPlayerScoreNumberToScoreName(player1Score, player2Score);
     }
 
     private String transformPlayerScoreNumberToScoreName(int player1Score, int player2Score) {
@@ -34,6 +31,10 @@ public class TennisGame {
             return "Win for player2";
         }
 
+        if (isDeuce(player1Score, player2Score)) {
+            return "Deuce";
+        }
+
         if (player1Score == 1) {
             player1ScoreName = "Fifteen";
         } else if (player1Score == 2) {
@@ -52,6 +53,13 @@ public class TennisGame {
 
         return player1ScoreName + " - " + player2ScoreName;
     }
+
+    private boolean isDeuce(int player1Score, int player2Score) {
+        return player1Score>=3 && player1Score==player2Score;
+    }
+
+
+
 
     /*
         checks if player provided in the first argument has advantage over the other player
