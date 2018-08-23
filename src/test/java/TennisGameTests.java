@@ -181,4 +181,24 @@ public class TennisGameTests {
 
     }
 
+    @Test
+    // 3-3 - Deuce
+    public void shouldDisplayDeuceWhenTheScoreIs33() {
+        //GIVEN
+        TennisGame tg = new TennisGame();
+
+        //WHEN
+        tg.wonPoint("player1");
+        tg.wonPoint("player1");
+        tg.wonPoint("player1");
+        tg.wonPoint("player2");
+        tg.wonPoint("player2");
+        tg.wonPoint("player2");
+        String score = tg.getScore();
+
+        //THEN
+        assertThat(score).isEqualTo("Deuce");
+
+    }
+
 }
