@@ -12,7 +12,6 @@ public class GameScoreFifteenLove implements GameScore {
 
     @Override
     public void pointForPlayer2(TennisGame game) {
-
         game.setScore(new GameScoreFifteenFifteen());
     }
 }

@@ -1,16 +1,16 @@
-public class GameScoreThirtyFifteen implements GameScore {
+public class GameScoreThirtyThirty implements GameScore {
     @Override
     public String getScoreName() {
-        return "Thirty - Fifteen";
+        return "Thirty - Thirty";
     }
 
     @Override
     public void pointForPlayer1(TennisGame game) {
-        game.setScore(new GameScoreFortyFifteen());
+        game.setScore(new GameScoreFortyThirty());
     }
 
     @Override
     public void pointForPlayer2(TennisGame game) {
-        game.setScore(new GameScoreThirtyThirty());
+        game.setScore(new GameScoreThirtyForty());
     }
 }

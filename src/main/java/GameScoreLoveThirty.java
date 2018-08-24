@@ -6,11 +6,11 @@ public class GameScoreLoveThirty implements GameScore {
 
     @Override
     public void pointForPlayer1(TennisGame game) {
-        // TODO implement
+        game.setScore(new GameScoreFifteenThirty());
     }
 
     @Override
     public void pointForPlayer2(TennisGame game) {
-        // TODO implement
+        game.setScore(new GameScoreLoveForty());
     }
 }
