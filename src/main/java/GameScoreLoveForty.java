@@ -1,16 +1,18 @@
+
 public class GameScoreLoveForty implements GameScore {
+
     @Override
     public String getScoreName() {
         return "Love - Forty";
     }
 
     @Override
-    public void pointForPlayer1(TennisGame game) {
-        game.setScore(new GameScoreFifteenForty());
+    public void pointForPlayer1(Game game) {
+        game.setScore(GameScores.createGameScoreFifteenForty());
     }
 
     @Override
-    public void pointForPlayer2(TennisGame game) {
-        game.setScore(new GameScoreWinForPlayer2());
+    public void pointForPlayer2(Game game) {
+        game.setScore(GameScores.createGameScoreWinForPlayer2());
     }
 }

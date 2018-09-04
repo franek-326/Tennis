@@ -1,8 +1,8 @@
 
-public interface GameScore {
+interface GameScore {
 
-    public String getScoreName();
-    public void pointForPlayer1(TennisGame game);
-    public void pointForPlayer2(TennisGame game);
+    String getScoreName();
+    void pointForPlayer1(Game game);
+    void pointForPlayer2(Game game);
 }
 

@@ -1,12 +1,12 @@
-public class TennisGame {
+public class TennisGame implements Game {
     private GameScore currentScore;
 
-    public TennisGame() {
-        setScore(new GameScoreLoveLove());
+    TennisGame() {
+        setScore(GameScores.createGameScoreLoveLove());
     }
 
-    public void wonPoint(String s) {
-        if (s.equals("player1")) {
+    public void wonPoint(String player) {
+        if (player.equals("player1")) {
             currentScore.pointForPlayer1(this);
         } else {
             currentScore.pointForPlayer2(this);
